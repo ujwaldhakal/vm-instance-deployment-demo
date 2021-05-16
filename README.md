@@ -2,21 +2,21 @@
 After making an application and hosting it, the next overhead is making a fluent deployment process where code can be easily be deployed to the Server. 
 With [Github Action](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions) it is really easy making one.
 
-In this tutorial you will learn how to write a script that will deploy your desired branch to the Server using [Github Action](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
+In this tutorial you will learn how to write a script that will deploy code to the Server using [Github Action](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
 
 ### Prerequisites
 
-* Basic concepts  Github Actions workflows
+* Basic concepts  Github Actions Workflows
 * You have hosted application i.e any frontend / backend application on any virtual server (Digital Ocean, Vm instance, ec2 instance etc)
 
 ### What is Github Action?
-[Github Action](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions) is a service provided by Github where one can listen to the various Github Events like code pushed some branch, tag creation etc and react to them accordingly with some scripts which we will write.
+[Github Action](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions) is a service provided by Github where one can listen to the various Github Events like code pushed to some branch, tag creation etc and react to them accordingly with some scripts which we will write.
 
 ### What is Vm Instance?
 A [Vm Instance](https://cloud.google.com/compute/?utm_source=google&utm_medium=cpc&utm_campaign=japac-AU-all-en-dr-bkws-all-all-trial-e-dr-1009882&utm_content=text-ad-none-none-DEV_c-CRE_505020325174-ADGP_Hybrid+%7C+BKWS+-+EXA+%7C+Txt+~+Compute+~+Compute+Engine_VM-instances-KWID_43700062034862769-kwd-277810790368&userloc_9070016-network_g&utm_term=KW_google%20vm%20instance&gclsrc=ds&gclid=CPLrvKvrzfACFUNyjgodZg8OfA&gclsrc=ds) is a virtual machine (VM) hosted on Google's infrastructure where our codes & webserver will be hosted into.
 
 ### Solution Approach
-In this app we will demo use Nuxt Js. So to deploy the Nuxt Js application lets create a clear manual steps and try to automate it. So here are the steps involved -:
+In this tutorial we will use [Nuxt Js](https://nuxtjs.org/) application. So to deploy the Nuxt Js application lets create a clear manual steps and try to automate it.
 
 * Log into the Server via ssh
 * Go to the right folder and pull git code using `git pull origin master`
@@ -24,7 +24,7 @@ In this app we will demo use Nuxt Js. So to deploy the Nuxt Js application lets 
 * Run `yarn build` to build the file
 * Run `yarn start`
 
-Now lets create a script which will trigger this all command whenever we push any code to `master` branch on Github
+Now lets create a script which will trigger this all these commands whenever we push any code to `master` branch on Github
 
 ### Write Github Action Yaml and Bash script 
 
