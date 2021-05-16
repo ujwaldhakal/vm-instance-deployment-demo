@@ -1,8 +1,7 @@
 # How to automatically Deploy Code to VM Instance using Github Action?
-After making an application and hosting it, the next overhead is making a fluent deployment process where code can be easily be deployed to the Server. 
-With [Github Action](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions) it is really easy making one.
+If you are still deploying code to Server by manually logging into server & running the commands then you need to automate and save sometime, because life is too short to deploy manually.
 
-In this tutorial you will learn how to write a script that will deploy code to the Server using [Github Action](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
+In this tutorial you will learn how to write a script that will deploy code to the Server using [Github Action](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions) on every code push to Github
 
 ### Prerequisites
 
@@ -27,8 +26,8 @@ In this tutorial we will use [Nuxt Js](https://nuxtjs.org/) application. So to d
 Now lets create a script which will trigger this all these commands whenever we push any code to `master` branch on Github
 
 ### Write Github Action Yaml and Bash script 
-
-##### 1) Create Github Action Deployment file `deploy.yml`
+We will create two files(Code Repository & Server) which will get triggered on code push.
+##### Create Github Action Deployment file `deploy.yml`
 Lets create `.github/workflows` folder inside your application root directory and create a file `deploy.yml` with following codes
 
 ```
@@ -56,10 +55,10 @@ In this script we gave our deployment a name `deploy` which will be triggered wh
 
 *Note: The  equivalent command  of this script is `shh username@host sh deploy-app.sh`*
 
-The variable named `secrets` are the key & value store which is provided by [Github Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets). You need to add `HOSTNAME,USERNAME,PASSWORD,PORT` these variable with value in Github Secrets where you can find under `settings > Secrets > New repository secret`
+The variable named `secrets` are the key & value store which is provided by [Github Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets). Add `HOSTNAME,USERNAME,PASSWORD,PORT` these variable with value in Github Secrets where you can find under `settings > Secrets > New repository secret`
 ![Github Secrets](https://nimbus-screenshots.s3.amazonaws.com/s/c57a58d4d4c87a7c866728521ff53c4d.png)
 
-##### 2) Create Bash file `deploy-app.sh` 
+##### Create Bash file `deploy-app.sh` 
 After Github Action logs into the server from ssh it needs to trigger some manual commands to pull new version from Github and run necessary steps. Create `deploy-app.sh` inside your server where your application is hosted. And inside that file write following manual steps.
 
 ```
