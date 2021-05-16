@@ -57,7 +57,7 @@ jobs:
 In this script we gave a our deployment name `deploy` which will be triggered whenever we push any codes to master i.e directly code push to master & merging of any branch. Then we have defined a `build` step where we have used package from `appleboy/ssh-action` which will help us to run `script:sh deploy-app.sh` script with environment variables. The final manual equavalent of this script will look this `shh username@host sh deploy-app.sh`
 
 The variable named `secrets` are the key & value store which is provided by (Github Secrets)[https://docs.github.com/en/actions/reference/encrypted-secrets]. You need to `HOSTNAME,USERNAME,PASSWORD,PORT` these variable with value in Github Secrets where you can find under `settings > Secrets > New repository secret`
-![alt text](https://nimb.ws/cuKmVk)
+![Github Secrets](https://nimbus-screenshots.s3.amazonaws.com/s/c57a58d4d4c87a7c866728521ff53c4d.png)
 
 ##### 2) Create Bash file `deploy-app.sh` 
 Now the final piece of the puzzle is to create `deploy-app.sh` inside your server where your application is hosted. And inside that file create our manual steps which we had discussed earlier to deploy.
